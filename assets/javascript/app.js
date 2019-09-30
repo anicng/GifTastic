@@ -26,7 +26,7 @@ $(document).ready(
         })
 
         // when animal button click, call api and display 10 gif with its rating
-        $(".animalButton").on("click", function () {
+        $(".animalButton").on("click", function gifDisplay() {
             $(".gif-div").empty();
             var animalChosen = $(this).attr("value");
             var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -49,13 +49,9 @@ $(document).ready(
                     $(".gif-div").append(newDiv);
 
                 })
-
-
-
             });
-
         })
 
-
+        $(document).on("click", ".animalButton", gifDisplay);
 
     });
