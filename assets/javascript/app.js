@@ -27,6 +27,7 @@ $(document).ready(
 
         // when animal button click, call api and display 10 gif with its rating
         $(".animalButton").on("click", function () {
+            $(".gif-div").empty();
             var animalChosen = $(this).attr("value");
             var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
                 animalChosen + "&api_key=CI5BOuYtH2R5TZWlbUOCcWdPBiaMSZ5V&limit=10";
@@ -37,12 +38,16 @@ $(document).ready(
             }).then(function (response) {
                 console.log(response);
                 response.data.forEach(function (gifInput) {
-                    
+                    var newDiv = $("<div>")
                     var newImage = $("<img>");
+                    var p = $("<p>")
                     // var gifImage = this.images.original_still.url;
-                    console.log(gifInput.images.fixed_height.url);
                     newImage.attr("src", gifInput.images.fixed_height.url);
-                    $(".gif-div").append(newImage);
+                    p.text("Rating: " + gifInput.rating);
+
+                    newDiv.append(newImage, p);
+                    $(".gif-div").append(newDiv);
+
                 })
 
 
