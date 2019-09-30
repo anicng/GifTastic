@@ -53,7 +53,7 @@ $(document).ready(
             });
         };
 
-        $(".animalButton").on("click", gifDisplay());
+        $(".animalButton").on("click", $(".gif-div").empty());
 
         $(document).on("click", ".animalButton", gifDisplay);
 
