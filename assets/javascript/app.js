@@ -1,7 +1,7 @@
 $(document).ready(
+
     function gifGenerater() {
         var animalList = ["penguin", "cat", "dog", "bird", "tuna", "kangaroo", "panda"];
-
         // render buttons with animals from animalList 
         function buttonGenerator() {
             $(".buttons-div").empty();
@@ -26,7 +26,8 @@ $(document).ready(
         })
 
         // when animal button click, call api and display 10 gif with its rating
-        $(".animalButton").on("click", function gifDisplay() {
+
+        function gifDisplay() {
             $(".gif-div").empty();
             var animalChosen = $(this).attr("value");
             var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -50,7 +51,9 @@ $(document).ready(
 
                 })
             });
-        })
+        };
+
+        $(".animalButton").on("click", gifDisplay());
 
         $(document).on("click", ".animalButton", gifDisplay);
 
