@@ -23,6 +23,7 @@ $(document).ready(
             console.log(searchTerm);
             animalList.push(searchTerm);
             buttonGenerator();
+            $("#search-input").val("");
         })
 
         // when animal button click, call api and display 10 gif with its rating
